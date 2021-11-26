@@ -92,7 +92,11 @@ class RoomBooking extends Component{
     }
 
     incrementChildren=()=>{
-        this.setState(prevState=>({children:prevState.children+1}),()=>{this.checkRooms()})
+        const {children}=this.state;
+        if(children<15){
+            this.setState(prevState=>({children:prevState.children+1}),()=>{this.checkRooms()})
+        }
+        
     }
 
     render(){
